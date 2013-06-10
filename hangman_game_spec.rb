@@ -45,12 +45,24 @@ describe Game do
     game.guess_letter("c")
     expect(game.blacked).to include("c__")
   end
+
   describe "guessing the word" do
-    it "allows to guess word" do
-      expect(game.guess_word).to eql("!")
+    it "allows incorrect words to be guessed" do
+      correct_word = 'car'
+      expect(game.correct_word?(correct_word)).to be_true
     end
-    it "verifies that the word is correct" do
-      expect(game.solved?).to be_true
+    
+    it "allows correct words to be guessed" do
+      incorrect_word = 'boat'
+      expect(game.correct_word?(incorrect_word)).to be_false
+    end
+  end
+
+  describe 'player turn' do
+    it 'returns the first player and cycles through' do
+      expect(game.select_player).to eql("kaz")
+      expect(game.players).to include("kaz")
+      expect(game.select_player).to eql("jason")
     end
   end
 end

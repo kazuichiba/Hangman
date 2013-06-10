@@ -28,7 +28,8 @@ describe GameSetup do
     it "allows name to be entered" do
       game_setup = GameSetup.new(1)
       game_setup.add_player("kaz")
-      expect(game_setup.players).to include("kaz")
+      # expect(object.method).to return(something)
+      expect(game_setup.players).to eql ["kaz"]
     end
   end
 

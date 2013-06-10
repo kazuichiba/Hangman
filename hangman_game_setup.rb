@@ -21,10 +21,13 @@ class GameSetup
     end
   end
 
+  def shuffled_players
+    @players.shuffle!
+  end
+
   def random_word
     @random_words.shuffle.slice(1)
   end
-
   
   def random_words
     @random_words
@@ -32,5 +35,9 @@ class GameSetup
 
   def start_game?
     @players.length == @player_count
+  end
+
+  def change_player_count(new_count)
+    @player_count = new_count
   end
 end
