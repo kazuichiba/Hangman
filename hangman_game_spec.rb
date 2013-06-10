@@ -2,9 +2,6 @@ require 'rspec'
 require_relative 'hangman_game_setup'
 require_relative 'hangman_game'
 
-
-
-
 describe Game do   
   let!(:game) { Game.new(['kaz','jason'], "car")}
   

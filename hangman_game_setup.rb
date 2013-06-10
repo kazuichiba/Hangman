@@ -12,7 +12,11 @@ class GameSetup
   end
 
   def add_player(player_name)
-    unless @players.include? player_name
+    #check if player is in array
+    if(@players.include? player_name)
+      # do nothing
+    else
+      #then add if they are not
       @players << player_name
     end
   end

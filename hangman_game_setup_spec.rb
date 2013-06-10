@@ -24,11 +24,11 @@ describe GameSetup do
       end
     end
   end
-    describe "adding players to a game" do
-      it "allows name to be entered" do
+  describe "adding players to a game" do
+    it "allows name to be entered" do
       game_setup = GameSetup.new(1)
       game_setup.add_player("kaz")
-      expect(game_setup.players).to include ("kaz")
+      expect(game_setup.players).to include("kaz")
     end
   end
 
@@ -48,11 +48,18 @@ describe GameSetup do
   describe "checks for the uniquness of all players" do
     it "makes sure that players names are unique" do
       game_setup = GameSetup.new(2)
-      game_setup.add_player("kaz")
-      game_setup.add_player("kaz")
+      
+      # try to add name twice
+      game_setup.add_player("john")
+      game_setup.add_player("john")
+
+      # make sure name is there AND that it is only there once
+      expect(game_setup.players).to include("john")
       expect(game_setup.players.length).to eql(1)
     end
   end
+
+
   describe "picks a random" do
     it "selects a random work from an array" do
       game_setup = GameSetup.new(2)
